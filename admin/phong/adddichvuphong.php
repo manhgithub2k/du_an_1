@@ -4,7 +4,7 @@
         <div class="col"></div>
 
         <button type="button" class="btn btn-secondary col-10" data-container="body" data-toggle="popover" data-placement="top" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
-            Thêm Tiện Ích cho Phòng
+            Thêm Dịch Vụ cho Phòng
         </button>
         <div class="col"></div>
 
@@ -15,7 +15,7 @@
 
         <div class="col"></div>
         <div class="col-10">
-            <form action="?act=adddichvuphong" method="post" enctype="multipart/form-data">
+            <form action="" method="post" enctype="multipart/form-data" id="formdichvu">
                 <div class="form-group">
                     <label for="exampleInputEmail1">ID Phòng</label>
                     <input type="text" class="form-control" id="exampleInputEmail1"
@@ -24,13 +24,13 @@
                 </div>
                 <div class="form-group">
                     <label for="exampleInputPassword1">Số Phòng</label>
-                    <select name="idphong" id="" class="form-control" id="exampleInputPassword1">
+                    <select name="idphong" id="sophong" class="form-control" onchange="id_Phong()" >
                         <option value="" >-- Chọn --</option>
                         <?php foreach ($listPhong as $phong){ 
                             extract($phong);
                         ?>
                         
-                        <option value="<?= $id_phong ?>"    ><?= $so_phong ?></option>
+                        <option value="<?= $id_phong ?>" <?= isset($idP)? $id_phong == $idP ? 'selected' : '': '' ?>   ><?= $so_phong ?></option>
                         <?php }?>
                     </select>
                     <span style="color: red;"><?php echo isset($error['idphong']) ? $error['idphong'] : ''; ?></span>               
@@ -80,3 +80,22 @@
 
 
 </div>
+<script>
+    function id_Phong() {
+    var x;        
+    x = document.getElementById("sophong").value;
+    var form = document.getElementById('formdichvu');
+
+    if (x !== '') {
+        form.action = "index.php?act=adddichvuphong&idphong=" + x;
+        window.location.href = "index.php?act=adddichvuphong&idphong=" + x;                                
+    }
+    }
+
+    <?php 
+        foreach ($listDV_P as $dichVu) {
+         extract($dichVu);
+     ?>
+    document.getElementById('dichvu<?= $id_dv ?>').checked= true ;
+        <?php } ?>
+</script>
