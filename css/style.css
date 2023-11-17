@@ -1,0 +1,368 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.container {
+    margin: 0 auto;
+    width: 1440px;
+    min-height: 750px;
+    background-color: aliceblue;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+}
+
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+}
+
+/* CSS PHẦN HEADER */
+
+header>.header_top {
+    width: 100%;
+    height: 58px;
+    background-color: #F06907;
+    display: flex;
+    justify-content: right;
+}
+
+header>.header_top>a {
+    display: flex;
+    /* width: 160px; */
+    /* justify-content: space-between; */
+    align-items: center;
+    color: white;
+}
+
+header>.header_top>a>p {
+    padding: 0 30px 0 10px;
+}
+
+header>.header_mid {
+    padding: 15px 0;
+    width: 100%;
+    height: 80px;
+    /* background-color: #F06907; */
+    display: grid;
+    grid-template-columns: 400px 600px 400px;
+    justify-content: space-between;
+}
+
+header>.header_mid>article {
+    height: 80px;
+
+
+}
+
+header>.header_mid>article>img {
+    padding-left: 70px;
+    width: 60%;
+
+
+}
+
+header>.header_mid>article>form>input[type="text"] {
+    text-align: center;
+
+    width: 520px;
+    height: 43px;
+    border-radius: 14px;
+    border: 0.5px solid gray;
+
+}
+
+header>.header_mid>article>form>input[type="submit"] {
+    width: 72px;
+    height: 45px;
+    background-color: #EB3737;
+    border: none;
+    border-radius: 14px;
+    position: relative;
+
+}
+
+header>.header_mid>article>form>input[type="submit"]:hover {
+    background-color: #61eb37;
+}
+
+header>.header_mid>article>form>i {
+    color: rgb(255, 255, 255);
+    font-size: 27px;
+    position: absolute;
+    top: 102px;
+    right: 480px;
+}
+
+header>.header_mid>article:nth-child(2) {
+    line-height: 80px;
+
+}
+
+header>.header_mid>article:nth-child(3) {
+    display: flex;
+    grid-template-columns: 30px;
+    justify-content: space-evenly;
+
+}
+
+header>.header_mid>article>section {
+    display: grid;
+    place-content: center;
+    width: 70px;
+    text-align: center;
+    line-height: 30px;
+
+}
+
+header>.header_mid>article>section>p {
+    font-size: 15px;
+    color: #6C6868;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+}
+
+header>.header_mid>article>section>i {
+    font-size: 22px;
+    color: #6C6868;
+
+}
+
+header>.header_bot {
+    width: 100%;
+    height: 58px;
+    background-color: #2E2878;
+    position: relative;
+}
+
+header>.header_bot>ul {
+    line-height: 58px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+header>.header_bot>ul>li>a {
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 560;
+}
+
+header>.header_bot>ul>.menu_hover {}
+
+header>.header_bot>ul>.menu_hover>.menu_drop>li {
+    /* width: 300px; */
+    padding: 0 30px;
+}
+
+header>.header_bot>ul>.menu_hover>.menu_drop>li:hover {
+    background-color: #61eb37;
+
+}
+
+header>.header_bot>ul>.menu_hover>.menu_drop>li>a {
+    color: white;
+
+}
+
+header>.header_bot>ul>.menu_hover>.menu_drop {
+    background-color: #2E2878;
+    /* padding: 0 20px ; */
+    display: none;
+
+}
+
+header>.header_bot>ul>.menu_hover:hover .menu_drop {
+    position: absolute;
+    display: block;
+
+}
+
+
+/* CSS PHẦN MAIN */
+main{
+    margin: 15px 80px;
+    width: 1280px;
+    min-height: 750px;
+}
+main>.banner{
+    width: 100%;
+    min-height: 414px;
+    display: grid;
+    grid-template-columns: 850px 400px;
+    justify-content: space-between;
+}
+main>.banner>article{
+
+}
+main>.banner>article>img{
+    width: 100%;
+    min-height: 414px;
+
+}
+main>.banner>article>section{
+    width: 100%;
+    height: 194px;
+    background-color: #61eb37;
+}
+main>.banner>article>section>img{
+    width: 100%;
+    height: 194px;
+    
+}
+main>.banner>article>section:nth-child(1){
+    margin-bottom: 25px;
+}
+
+main>.products{
+    margin: 50px 0;
+    width: 100%;
+    min-height: 400px;
+    padding: 0px 0;
+}
+main>.products>h2{
+    font-size: 25px;
+    color:  #4E4848;
+    padding: 0px 0px 40px 10px;
+    
+}
+main>.products>section{
+    display: flex;
+    justify-content: space-evenly;
+    
+}
+main>.products>section>.product{
+    text-align: center;
+    width: 270px;
+    height: 474px;
+    
+}
+main>.products>section>.product>div{
+    padding: 24px 10px 10px 10px;
+    width: 242px;
+    height: 337px;
+    border: 1px solid gainsboro;
+    
+}
+main>.products>section>.product>div>p{
+    font-size: 17px;
+    padding: 0 10px;
+    margin: 20px 0 30px 0;
+    line-height: 30px;
+    
+}
+main>.products>section>.product>div>span{
+    font-size: 21px;
+    color:  #E70F0F;
+    font-weight: 500;
+    
+}
+main>.products>section>.product>section{
+    margin-top: 20px;
+    height: 50px;
+   display: flex;
+   justify-content: space-evenly;
+   align-items: center;
+    
+}
+main>.products>section>.product>section>button{
+    width: 198px;
+    height: 40px;
+    background-color: #F06907;
+    border: none;
+    border-radius: 20px;
+    
+}
+main>.products>section>.product>section>button>a{
+    color: white;
+    
+}
+main>.products>section>.product>section>div{
+    width: 40px;
+    height: 40px;
+    background-color: #F06907;
+    border: none;
+    border-radius: 50%;
+    line-height: 40px;
+    
+}
+main>.products>section>.product>section>div>i{
+    
+    
+}
+
+
+/* CSS PHẦN FOOTER  */
+footer{
+    /* width: 1280px;
+    min-width: 800px;
+    display: grid;
+    grid-template-columns: 500px 400px 400px;
+    background-color: black; */
+
+}
+/* Khi phát sinh margin - padding sẽ vẫn giữ nguyên khung tránh thò thụt layout*/
+/* *{ 
+    box-sizing: border-box;
+    font-family: sans-serif;
+    font-size: 0.8vw;
+}
+.row{
+    float: left;
+    width: 100%;
+}
+.mb{
+    margin-bottom: 50px;
+}
+.footer{
+    background-color: #000000;
+    color: #FFFFFF;
+    display: flex;
+    justify-content: space-around;
+}
+.block1>img{
+    margin-top: 30px;
+    margin-left: 70px;
+}
+.text1{
+    width: 535px;
+}
+.text1>h2{
+    font-size: 26px;
+    font-weight: 200;
+    margin-left: 150px;
+}
+.text2{
+    width: 535px;
+}
+.block2>h1{
+    margin-top: 100px;
+    font-size: 34px;
+    font-weight: 600;
+    margin-left: 150px;
+    
+}
+.text2>h2{
+    font-size: 26px;
+    font-weight: 200;
+    margin-top: 10px;
+    margin-left: 150px;
+}
+.text3{
+    width: 535px;
+}
+.block3>h1{
+    margin-top: 100px;
+    font-size: 34px;
+    font-weight: 600;
+    margin-left: 150px; 
+}
+.text3>h2{
+    font-size: 26px;
+    font-weight: 200;
+    margin-top: 10px;
+    margin-left: 150px;
+} */

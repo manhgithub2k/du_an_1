@@ -1,0 +1,10 @@
+.table_checkbox  {
+    display: flex;
+    flex-wrap:wrap ;
+}
+.table_checkbox  td{
+    /* padding: 10px 30px; */
+    width: 200px;
+    height: 50px;
+     text-align: left;
+}
