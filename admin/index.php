@@ -53,7 +53,7 @@ if(isset($_GET['act']) && $_GET['act']){
                 
             }
             else{
-                $thongbao = "Tên loại phòng sai định dạng";             
+                $thongbao = "Tên loại phòng sai định dạng ";             
             }
            }
            include "loaiphong/add.php";
