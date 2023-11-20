@@ -424,7 +424,7 @@ if(isset($_GET['act']) && $_GET['act']){
 
         // 
         case "listdonhang":
-
+            $list_DH = 
             include_once "donhang/list.php";
             break;
         default:
