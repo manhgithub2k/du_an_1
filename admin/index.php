@@ -120,7 +120,7 @@ if(isset($_GET['act']) && $_GET['act']){
                     $imgTC = "Upload ảnh thành công";
 
                    } else{
-                    $error['img'] = "Upload ảnh không thành công ";
+                    $error['img'] = "Upload ảnh không thành công ! ";
 
                    }
                 }  else{
