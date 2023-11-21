@@ -264,7 +264,7 @@ if(isset($_GET['act']) && $_GET['act']){
                     }
                 
                     if(empty($error)){
-
+                            // 
                         // Cập nhật vào csdl
                         update_phong($id,$soPhong,$image,$idLP,$gia,$moTa,$soLN,$dienTich);
                         $thongbaoTC ="Đã sửa sách thành công !";
