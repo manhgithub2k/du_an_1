@@ -40,7 +40,7 @@
                 
                 
                 <div class="form-group">
-                    <label for="exampleInputPassword1">TDịch Vụ</label> <br>
+                    <label for="exampleInputPassword1">Dịch Vụ</label> <br>
                     <table >
                         <tr class="table_checkbox">
                             <?php 
@@ -80,3 +80,29 @@
 
 
 </div>
+<script>
+    function id_phong() {
+        var x;
+        
+    x = document.getElementById("sophong").value;
+    var form = document.getElementById('formdichvu');
+
+    if (x !== '') {
+        form.action = "index.php?act=adddichvuphong&idphong=" + x;
+        window.location.href = "index.php?act=adddichvuphong&idphong=" + x;
+    
+}
+}
+    
+    
+    
+    
+    <?php 
+        foreach ($listTI_P as $ti_P) {
+         extract($ti_P);
+     ?>
+    document.getElementById('tienich<?= $id_ti ?>').checked= true ;
+        <?php } ?>
+    // document.getElementById('tienich1').checked= true ;
+
+</script>
