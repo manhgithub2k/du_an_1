@@ -41,19 +41,19 @@ if(isset($_GET['act']) && $_GET['act']){
                 
             }
             break;
-        
+         
         
         case 'addlp':
            if(isset($_POST['submit']) && $_POST['submit']){
             if(preg_match($checkName,$_POST['tenlp'])){
                 $tenLp = $_POST['tenlp'];
                 insert_loaiphong($tenLp);
-                $thongbaoTC = " Đã Thêm Thành Công";             
+                $thongbaoTC = " Đã Thêm Thành Công !";             
 
                 
             }
             else{
-                $thongbao = "Tên loại phòng sai định dạng";             
+                $thongbao = "Tên loại phòng sai định dạng ";             
             }
            }
            include "loaiphong/add.php";
@@ -343,34 +343,35 @@ if(isset($_GET['act']) && $_GET['act']){
         case 'adddichvuphong':
             $listPhong = select_Allphong('',0);
             $listDichVu = select_Alldichvu();
+
             if(isset($_GET['idphong']) && $_GET['idphong']){
                 $idP = $_GET['idphong'];
-                echo $idP;
             }
+            
+
+            $listDV_P = select_dichvu_phong(isset($_GET['idphong'])? $_GET['idphong'] : '');
             if(isset($_POST['submit']) && $_POST['submit']){
                 if(!empty($_POST['idphong']) && $_POST['idphong']){
                     $idPhong = $_POST['idphong'];
-
-                    
+                   
                 } else {
                     $error['idphong'] = "Không được bỏ trống!";
                 }
                 if(isset($_GET['idphong']) && $_GET['idphong']){
                     if(isset($_POST['dichvu']) && $_POST['dichvu']){
                         // Lấy dữ liệu từ checkbox
-                        $dichvu = $_POST['dichvu'];                                   
-                    } else {
-                        $error['dichvu'] = "Không có lựa chọn nào được chọn.";
-                    }
-    
-                    if(empty($error)){
+                        $dichvu = $_POST['dichvu'];   
+                        delete_dichvu_phong($idP);
                         foreach ($dichvu as $dv) {
                             insert_dichvu_phong($idPhong,$dv);
     
                         }
-                        $thongbao="Thêm thành công!";
-                        
+                        $thongbao="Thêm thành công!";                                
+                    } else {
+                        $error['dichvu'] = "Không có lựa chọn nào được chọn.";
                     }
+    
+                    
                 }
                 
             }
@@ -423,7 +424,7 @@ if(isset($_GET['act']) && $_GET['act']){
 
         // 
         case "listdonhang":
-
+            $list_DH = 
             include_once "donhang/list.php";
             break;
         default:
