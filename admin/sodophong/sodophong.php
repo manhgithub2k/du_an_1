@@ -366,7 +366,7 @@ $vietnamTime = $currentTime->format('Y-m-d H:i:s');
                     var gia = document.getElementById('gia').value;
                     console.log(gia);
                     var tongTien = Math.round(ngay / (1000 * 60 * 60 * 24) + 1) * gia;
-                    document.getElementById('hihi').innerText = 'Tổng tiền : '+gia*Math.round(ngay / (1000 * 60 * 60 * 24) + 1) + 'VND';
+                    document.getElementById('hihi').innerText = 'Tổng tiền  : '+gia*Math.round(ngay / (1000 * 60 * 60 * 24) + 1) + 'VND';
                     document.getElementById('tong').value = tongTien ;
             }
         }
