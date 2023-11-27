@@ -499,7 +499,7 @@ if(isset($_GET['act']) && $_GET['act']){
 
         // 
         case "listdatphong":
-            $list_DH = select_Alldatphong();
+            $list_DH = select_Alldatphong() ;
             include_once "datphong/list.php";
         break;
 
