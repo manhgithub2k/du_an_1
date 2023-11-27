@@ -8,3 +8,7 @@
     height: 50px;
      text-align: left;
 }
+.modal-body #label{
+    width: 50px;
+    background-color: black;
+}

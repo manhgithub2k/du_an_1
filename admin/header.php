@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-
+    
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -16,11 +16,16 @@
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
-
-    <!-- Custom styles for this template-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    
+        <!-- Custom styles for this template-->
     <link href="../css/sb-admin-2.min.css" rel="stylesheet">
     <link href="../css/style3.css" rel="stylesheet">
-    
+    <style>
+        a{
+            color: black;
+        }
+    </style>
 
 </head>
 
@@ -31,7 +36,7 @@
     <div id="wrapper" style="position: relative;">
 
         <!-- Sidebar -->
-        <ul class="navbar-nav  bg-gradient-dark sidebar sidebar-dark accordion " id="accordionSidebar" style="width: 250px; background-color: red; padding-left: 100px;"></ul>
+        <ul   style="width: 246px;  padding-left: 100px;"></ul>
         <ul class="navbar-nav  bg-gradient-dark sidebar sidebar-dark accordion " id="accordionSidebar" style="position: fixed; z-index: 1;">
 
             <!-- Sidebar - Brand -->
@@ -47,9 +52,9 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="index.php">
+                <a class="nav-link" href="index.php?act=sodophong">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Dashboard </span></a>
+                    <span>Sơ Đồ Phòng </span></a>
             </li>
 
             <!-- Divider -->
@@ -71,16 +76,17 @@
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Custom Components:</h6>
-                        <a class="collapse-item" href="?act=addlp">Thêm Loại Phòng</a>
-                        <a class="collapse-item" href="?act=listlp">Danh Sách</a>
-                        <a class="collapse-item" href="?act=editlp">Thống Kê</a>
+                        <a class="collapse-item" href="?act=addlp&a=listlp">Thêm Loại Phòng</a>
+                        <a class="collapse-item" href="?act=listlp&a=listlp">Danh Sách</a>
+                        <a class="collapse-item" href="?act=addtienichloaiphong">Thêm Tiện Ích Loại Phòng</a>
+                        <a class="collapse-item" href="?act=editlp&a=listlp">Thống Kê</a>
                     </div>
                 </div>
             </li>
-            <!-- Nav Item - Pages Collapse Menu -->
+            <!-- Nav Item - Phòng Menu -->
             <li class="nav-item">
 
-                <a class="nav-link collapsed collapsed2" href="#" data-toggle="collapse" data-target="#collapseTwo1"
+                <a class="nav-link collapsed collapsed2" href="" data-toggle="collapse" data-target="#collapseTwo1"
                     aria-expanded="true" aria-controls="collapseTwo1">
                     <i class="fa fa-book" aria-hidden="true"></i>
                     <span>Phòng</span>
@@ -88,18 +94,17 @@
                 <div id="collapseTwo1" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Custom Components:</h6>
-                        <a class="collapse-item" href="?act=addphong">Thêm Phòng</a>
-                        <a class="collapse-item" href="?act=addtienichphong">Thêm Tiện Ích Phòng</a>
-                        <a class="collapse-item" href="?act=adddichvuphong">Thêm Dịch Vụ Phòng</a>
-                        <a class="collapse-item" href="?act=listphong">Danh Sách</a>
-                        <a class="collapse-item" href="?act=editphong">Thống Kê</a>
+                        <a class="collapse-item" href="?act=addp">Thêm Phòng</a>                       
+                        <a class="collapse-item" href="?act=listp">Danh Sách</a>
+                        <a class="collapse-item" href="?act=editp">Thống Kê</a>
                     </div>
                 </div>
             </li>
+            
             <!-- Nav Item - User Menu -->
             <li class="nav-item">
 
-                <a class="nav-link collapsed " href="#" data-toggle="collapse" data-target="#user" aria-expanded="true"
+                <a class="nav-link collapsed " href="" data-toggle="collapse" data-target="#user" aria-expanded="true"
                     aria-controls="user">
                     <i class="fa fa-user-circle" aria-hidden="true"></i>
                     <span>User</span>
@@ -112,42 +117,11 @@
                     </div>
                 </div>
             </li>
-            <!-- Nav Item - Tiện Ích Menu -->
+
+            <!-- Nav Item - Đặt Phòng Menu -->
             <li class="nav-item">
 
-                <a class="nav-link collapsed " href="#" data-toggle="collapse" data-target="#tienich" aria-expanded="true"
-                    aria-controls="tienich">
-                    <i class="fa fa-bell" aria-hidden="true"></i>
-                    <span>Tiện Ích</span>
-                </a>
-                <div id="tienich" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Custom Components:</h6>
-                        <a class="collapse-item" href="?act=listu">Thêm Tiện Ích</a>
-                        <a class="collapse-item" href="#">Danh Sách </a>
-                    </div>
-                </div>
-            </li>
-            <!-- Nav Item - Dịch Vụ Menu -->
-            <li class="nav-item">
-
-                <a class="nav-link collapsed " href="#" data-toggle="collapse" data-target="#dichvu" aria-expanded="true"
-                    aria-controls="dichvu">
-                    <i class="fa fa-phone" aria-hidden="true"></i>
-                    <span>Dịch Vụ</span>
-                </a>
-                <div id="dichvu" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Custom Components:</h6>
-                        <a class="collapse-item" href="?act=listu">Thêm Dịch Vụ</a>
-                        <a class="collapse-item" href="#">Danh Sách </a>
-                    </div>
-                </div>
-            </li>
-            <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item">
-
-                <a class="nav-link collapsed " href="#" data-toggle="collapse" data-target="#donhang"
+                <a class="nav-link collapsed " href="" data-toggle="collapse" data-target="#donhang"
                     aria-expanded="true" aria-controls="donhang">
                     <i class="fa fa-cart-plus" aria-hidden="true"></i>
                     <span>Đặt Phòng</span>
@@ -155,7 +129,8 @@
                 <div id="donhang" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Custom Components:</h6>
-                        <a class="collapse-item" href="?act=listdonhang">Quản Lý Đặt Phòng</a>
+                        <a class="collapse-item" href="?act=listdatphong">Quản Lý Đặt Phòng</a>
+                        <a class="collapse-item" href="?act=adddichvudatphong&&a=adddichvudatphong">Thêm Dịch Vụ Phòng</a>
                         <a class="collapse-item" href="#">Thống Kê</a>
                     </div>
                 </div>
@@ -224,7 +199,7 @@
                             <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
                                 aria-label="Search" aria-describedby="basic-addon2" name="keyw">
                             <div class="input-group-append">
-                                <input type="submit" value="Tìm" class="btn btn-dark" name="search">
+                                <input type="submit" value="Tìm" class="btn btn-dark" name="submit">
                                 <!-- <button class="btn btn-dark" type="button">
                                     <i class="fas fa-search fa-sm"></i>
                                 </button> -->
@@ -411,7 +386,7 @@
                 
     <script>
         
-        var a = "<?php echo $act = $_GET['act'] ?>";
+        var a = "<?php echo $act = $_GET['a'] ?>";
         // console.log("index.php?act=search&a="+a);
         document.getElementById('form_search').action = "index.php?act=search&a="+a;
 

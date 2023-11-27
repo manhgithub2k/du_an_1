@@ -3,7 +3,7 @@
 
 function pdo_get_connection(){
     try{
-        $conn = new PDO('mysql:host=localhost;dbname=poly_hotel', 'root','');
+        $conn = new PDO('mysql:host=localhost;dbname=polyhotel', 'root','');
    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     return $conn;
     } catch(PDOException $e){
@@ -70,6 +70,16 @@ function pdo_query_one($sql){
     }
 }
 
+function kiemtra_trungdata($tenLoai){
+    $sql = "SELECT `id_loaiphong`, `ten_loai`, `gia`, `anh`, `mo_ta`, `giam_gia`, `sl_nguoi`, `dien_tich`, `id_lg` FROM `loai_phong` WHERE ten_loai=?";
+    return pdo_query($sql,$tenLoai);
+
+}
+function kiemtra_trungtenphong($tenPhong){
+    $sql = "SELECT `id_phong`, `ten_phong`, `id_lp`, `mota_phong`, `trang_thai` FROM `phong` WHERE ten_phong=? ";
+    return pdo_query($sql,$tenPhong);
+
+}
 ?>
 
 

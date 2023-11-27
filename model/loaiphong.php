@@ -1,14 +1,21 @@
 <?php  
-function insert_loaiphong($tenLp){
-    $sql = "INSERT INTO `loai_phong`( `ten_loai`) VALUES ('$tenLp')";           
-            pdo_execute($sql);
+
+function insert_loaiphong($tenLp,$img,$gia,$moTa,$soLN,$dienTich,$idGiuong){
+    $sql = "INSERT INTO `loai_phong`( `ten_loai`, `gia`, `anh`, `mo_ta`, `sl_nguoi`, `dien_tich` , `id_lg`) VALUES (?,?,?,?,?,?,?)";           
+            pdo_execute($sql,$tenLp,$gia,$img,$moTa,$soLN,$dienTich,$idGiuong);
 }
 
-function select_Allloaiphong(){
-    $sql = "SELECT * FROM `loai_phong` order by id_loaiphong desc";
-            $dsLoai  = pdo_query($sql);
-            return $dsLoai;
-            
+function select_Allloaiphong($keyw) {
+    $sql = "SELECT * FROM `loai_phong` p LEFT JOIN `loai_giuong` g ON p.id_lg = g.id_loaigiuong WHERE 1";
+    
+    if ($keyw != " ") {
+        $sql .= " AND ten_loai LIKE '%".$keyw ."%'";
+    }
+    
+    $sql .= " ORDER BY id_loaiphong DESC";
+    
+    $dsLoai = pdo_query($sql );
+    return $dsLoai;
 }
 
 // function select_Alldanhmuc_sl(){
@@ -33,9 +40,9 @@ function update_loaiphong($id,$idnew,$name){
                 pdo_execute($sqlUpdate);
 }
 
-function update_loaiphong1($id,$ten_Lp){
-    $sqlUpdate = "UPDATE `loai_phong` SET `ten_loai`='$ten_Lp' WHERE id_loaiphong= ?";
-                pdo_execute($sqlUpdate,$id);
+function update_loaiphong1($id,$tenLp,$img,$gia,$moTa,$soLN,$dienTich,$idGiuong){
+    $sqlUpdate = "UPDATE `loai_phong` SET `ten_loai`=?,`gia`=?,`anh`=?,`mo_ta`=?,`sl_nguoi`=?,`dien_tich`=?,`id_lg`=? WHERE  id_loaiphong= ?";
+                pdo_execute($sqlUpdate,$tenLp,$gia,$img,$moTa,$soLN,$dienTich,$idGiuong,$id);
 }
 
 

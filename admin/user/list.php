@@ -49,7 +49,7 @@
                         <td><img src="<?= $anh ?>" alt="" style="height: 100px;"></td>
                         <td><?= $email ?></td>
                         <td><?= $sdt ?></td>
-                        <td><?php echo $vai_tro == 0 ? 'Admin':( $vai_tro == 1 ? 'Người Dùng' : '')  ?></td>
+                        <td><?php echo $vai_tro == 0 ? 'Administrator':( $vai_tro == 1 ? 'Nhân Viên' : '')  ?></td>
 
                         <td>
                             <button type="submit" class="btn btn-danger" > <a href="?act=deleteu&id=<?= $id_khachhang?>" onclick="return confirm('Bạn muốn xóa ?' )">Xóa</a></button>

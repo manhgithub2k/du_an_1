@@ -1,3 +1,4 @@
+
 <!-- /.container-fluid -->
 <div class="container-fluid " >
     <section class="row mx-0  ">
@@ -15,7 +16,7 @@
 
         <div class="col"></div>
         <div class="col-10">
-            <form action="?act=editphong&id=<?=$id_phong?>" method="post" enctype="multipart/form-data">
+            <form action="?act=editp&id=<?=$id_phong?>" method="post">
                 <div class="form-group">
                     <label for="exampleInputEmail1">ID Phòng</label>
                     <input type="text" class="form-control" id="exampleInputEmail1"
@@ -24,47 +25,21 @@
                 </div>
                 <div class="form-group">
                     <label for="exampleInputPassword1">Tên Phòng</label>
-                    <input type="text" class="form-control" id="exampleInputPassword1" name="sophong" value="<?= $so_phong ?>">
-                    <span style="color: red;"><?php echo isset($error['sophong']) ? $error['sophong'] : ''; ?></span>
-                </div>
-                
-                <div class="form-group">
-                    <label for="exampleInputPassword1">Ảnh Phòng</label>
-                    <img src="<?= $anh_phong ?>" alt="" style="height: 100px; padding: 5px;">
-                    <input type="file" class="form-control" id="exampleInputPassword1" name="img" accept="*/*" >
-                    <!-- <?php echo $_FILES['img']['name'] ?> -->
-                    <span style="color: red;"><?php echo isset($error['img']) ? $error['img'] : ''; ?></span>
-                    <span style="color: green;"><?php echo isset($imgTC) ? $imgTC : ''; ?></span>
+                    <input type="text" class="form-control" id="exampleInputPassword1" name="ten_phong" value="<?= $ten_phong ?>">
+                    <span style="color: red;"><?php echo isset($error['ten_phong']) ? $error['ten_phong'] : ''; ?></span>
                 </div>
 
-                <div class="form-group">
-                    <label for="exampleInputPassword1">Giá</label>
-                    <input type="number" class="form-control" id="exampleInputPassword1" name="gia" value="<?= $gia_phong ?>">
-                    <span style="color: red;"><?php echo isset($error['gia']) ? $error['gia'] : ''; ?></span>
-                </div>
                 <div class="form-group">
                     <label for="exampleInputPassword1">Mô Tả</label> <br>
-                    <textarea name="mota" id="" cols="112" rows="7" ><?= $mota_phong ?></textarea>
+                    <textarea name="mota_phong" id="" cols="112" rows="7" ><?= $mota_phong ?></textarea>
                     
-                    <span style="color: red;"><?php echo isset($error['mota']) ? $error['mota'] : ''; ?></span>
-                </div>
-
-                <div class="form-group">
-                    <label for="exampleInputPassword1">Số Lượng</label>
-                    <input type="number" class="form-control" id="exampleInputPassword1" name="soluong" value="<?= $sl_nguoi ?>">
-                    <span style="color: red;"><?php echo isset($error['soluong']) ? $error['soluong'] : ''; ?></span>
-                </div>
-                
-                <div class="form-group">
-                    <label for="exampleInputPassword1">Diện Tích</label>
-                    <input type="number" class="form-control" id="exampleInputPassword1" name="dientich" value="<?= $dien_tich ?>">
-                    <span style="color: red;"><?php echo isset($error['dientich']) ? $error['dientich'] : ''; ?></span>
+                    <span style="color: red;"><?php echo isset($error['mota_phong']) ? $error['mota_phong'] : ''; ?></span>
                 </div>
                 
                 <div class="form-group">
 
-                    <label for="exampleInputPassword1">Danh Mục</label>
-                    <select name="idloaiphong" id="" class="form-control" id="exampleInputPassword1">
+                    <label for="exampleInputPassword1">Loại Phòng</label>
+                    <select name="id_lp" id="" class="form-control" id="exampleInputPassword1">
                         <option value="" >-- Chọn --</option>
                         <?php foreach ($AllLoaiPhong as $loaiphong){ 
                             extract($loaiphong);
@@ -73,7 +48,7 @@
                         <option value="<?= $id_loaiphong ?>" <?=  $id_loaiphong == $id_lp ? "selected" : ""  ?>   ><?= $ten_loai ?></option>
                         <?php }?>
                     </select>
-                    <span style="color: red;"><?php echo isset($error['loaiphong']) ? $error['loaiphong'] : ''; ?></span>
+                    <span style="color: red;"><?php echo isset($error['loai_phong']) ? $error['loai_phong'] : ''; ?></span>
                 </div>
                 
                 

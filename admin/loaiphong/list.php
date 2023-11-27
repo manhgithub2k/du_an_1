@@ -25,14 +25,19 @@
                                     <th scope="col">STT</th>
                                     <th scope="col">ID Loại Phòng</th>
                                     <th scope="col">Tên Loại Phòng</th>
-                                    <!-- <th scope="col">Số Lượng Sách</th> -->
+                                    <th scope="col">Ảnh Bìa</th>
+                                    <th scope="col">Mô Tả</th>
+                                    <th scope="col">Giá </th>
+                                    <th scope="col">Số Người </th>
+                                    <th scope="col">Diện Tích </th>
+                                    <th scope="col">Loại Giường </th>
                                     <th scope="col">ACT</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <?php
                                     $stt = 0;
-                                     foreach ($listDM as $dm) {
+                                     foreach ($listLoaiPhong as $dm) {
                                         $stt++;
                                         extract($dm);
                                      
@@ -41,6 +46,13 @@
                                     <th scope="row"><?= $stt ?></th>
                                     <td><?= $dm['0'] ?></td>
                                     <td><?= $ten_loai?></td>
+                                    <td><img src="<?= $anh ?>" alt="" style="height: 100px;"></td>
+                                    <td><?= $mo_ta ?></td>
+                                    <td><?= $gia ?> VND</td>
+                                    <td><?= $sl_nguoi == null ? 0 : $sl_nguoi ?></td>
+                                    <td><?= $dien_tich ?></td>
+                                    <td><?= $ten_giuong ?></td>
+
                                     <!-- <td><?= $sl_sach == null ? 0 : $sl_sach ?></td> -->
                                     <td>
                                         <button type="submit" class="btn btn-danger" > <a href="?act=deletelp&id=<?= $dm['0']?>">Xóa</a></button>
