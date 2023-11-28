@@ -1,3 +1,9 @@
+<?php
+date_default_timezone_set('Asia/Ho_Chi_Minh');
+$currentTime = new DateTime();
+$vietnamTime = $currentTime->format('Y-m-d H:i:s');
+?>
+
 <!-- /.container-fluid -->
 
 <div class="container-fluid " >
@@ -54,12 +60,21 @@
                         <td><?= $ngay_checkout ?></td>
                         <td><?= $ngay_datphong ?></td>
                         <td><?= $ngay_hoanthanh ?></td>
-                        <td><?php echo $trang_thai_don == 0 ? 'Đợi checkin':( $trang_thai_don == 1 ? 'Đã Nhận Phòng' : '')  ?></td>
+                        
+                        <td><?= $trang_thai_don == 2 ? 'Đã Hoàn Thành' : ($ngay_checkin < $vietnamTime ? ($trang_thai_don == 0 ? 'Khách chưa nhận Phòng' : 'Đợi Check In') : '') ?></td>
 
                         <td>
+                            <?php
+                            if($trang_thai_don == 0) { ?>
+                            <button type="submit" class="btn btn-success"><a href="?act=checkin&&iddon=<?= $id_don ?>&&idphong= <?= $id_phong ?>">Check in </a></button> <br> <br>
+
+                           <?php } else if($trang_thai_don == 1) {
+                            ?>
                             <!-- <button type="submit" class="btn btn-danger" > <a href="?act=deleteu&id=<?= $id_khachhang?>" onclick="return confirm('Bạn muốn xóa ?' )">Xóa</a></button> -->
-                            <button type="submit" class="btn btn-success"><a href="?act=checkin&iddon=<?= $id_don?>">Check in </a></button> <br> <br>
-                            <button type="submit" class="btn btn-danger"><a href="?act=checkout&iddon=<?= $id_don?>">Check out</a></button>
+                            <button type="submit" class="btn btn-danger"><a href="?act=?act=checkout&&iddon=<?= $id_don ?>&&idphong= <?= $id_phong ?>">Check out</a></button>
+                            <?php } else { ?>
+                            <?php } ?>
+
                         </td>
                         
                         </tr> 

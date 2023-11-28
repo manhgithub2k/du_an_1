@@ -386,7 +386,7 @@
                 
     <script>
         
-        var a = "<?php echo $act = $_GET['a'] ?>";
+        var a = "<?php echo isset($_GET['a'])?  $act = $_GET['a'] : '' ?>";
         // console.log("index.php?act=search&a="+a);
         document.getElementById('form_search').action = "index.php?act=search&a="+a;
 

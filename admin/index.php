@@ -17,7 +17,7 @@ $checkName = "/^[a-zA-Z\sáàảãạắằẳẵặấầẩẫậéèẻẽẹ
 $checkTen = "/^[a-zA-Z\sáàảãạắằẳẵặấầẩẫậéèẻẽẹếềểễệíìỉĩịóòỏõọốồổỗộớờởỡợúùủũụứừửữựýỳỷỹỵđÁÀẢÃẠẮẰẲẴẶẤẦẨẪẬÉÈẺẼẸẾỀỂỄỆÍÌỈĨỊÓÒỎÕỌỐỒỔỖỘỚỜỞỠỢÚÙỦŨỤỨỪỬỮỰÝỲỶỸỴĐ ]+$/";
 // $AllLoaiPhong = select_Allloaiphong();
 // $listLoaiPhong = select_Allloaiphong("");
-// trang_thai();
+trangthai_auto();
 include "header.php";
 
 
@@ -58,6 +58,7 @@ if(isset($_GET['act']) && $_GET['act']){
             }
         break;
         case 'sodophong':
+            
             $listDichVu = select_Alldichvu();
             if(isset($_GET['trangthai']) && $_GET['trangthai']){
             $trang_thai = $_GET['trangthai'];
@@ -67,6 +68,7 @@ if(isset($_GET['act']) && $_GET['act']){
             $listPhong = count_phong(' ');
 
             }
+            // echo"<pre>";
             // print_r($listPhong);
             include_once "sodophong/sodophong.php";
 
@@ -82,11 +84,48 @@ if(isset($_GET['act']) && $_GET['act']){
                 $soDT = $_POST['sodienthoai'];
                 $ngayCheckIn = $_POST['ngaycheckin'];
                 $ngayCheckOut = $_POST['ngaycheckout'];
+                
+                    if(isset($_POST['dichvu']) && $_POST['dichvu']){
+                        // Lấy dữ liệu từ checkbox
+                        $dichvu = $_POST['dichvu'];  
+
+                        // delete_dichvu_datphong($idDon);
+                        // foreach ($dichvu as $dv) {
+                        //     insert_dichvu_datphong($idDon,$dv);
+    
+                        // }
+                        
+                        // $thongbao="Thêm thành công!"; 
+                        // header('refresh:2;url=index.php?act=adddichvudatphong&a=adddichvudatphong&idphong='.$idPhong.'&iddon='.$idDon);
+
+
+                    } 
+    
+                    
+                
                 // echo 'haahhhahahhahah'.$gia;
                 print_r($_POST);
             }
 
         break;
+        case 'checkin':
+            if(isset($_GET['idphong']) && $_GET['idphong']){
+                update_phong_trangthai($_GET['idphong'],0);
+                $idPhongNew = $_GET['idphong']."69";
+                update_datphong_trangthaidon($_GET['iddon'],$idPhongNew,2);
+                echo"alert('Đã Check Out Thành Công')";
+            }
+            header("Location: index.php?act=sodophong");
+         break;   
+        case 'checkout':
+            if(isset($_GET['idphong']) && $_GET['idphong']){
+                update_phong_trangthai($_GET['idphong'],0);
+                $idPhongNew = $_GET['idphong']."69";
+                update_datphong_trangthaidon($_GET['iddon'],$idPhongNew,2);
+                echo"alert('Đã Check Out Thành Công')";
+            }
+            header("Location: index.php?act=sodophong");
+         break;   
          
         
         case 'addlp':
@@ -518,6 +557,7 @@ if(isset($_GET['act']) && $_GET['act']){
                     //     echo "<pre>";
                     // print_r($dh);
                     }
+                    update_datphong($idDon,'','','','','','','','','',$tongTien);
                     }
                     
                 

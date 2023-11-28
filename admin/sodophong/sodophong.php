@@ -3,35 +3,36 @@ date_default_timezone_set('Asia/Ho_Chi_Minh');
 $currentTime = new DateTime();
 $vietnamTime = $currentTime->format('Y-m-d H:i:s');
 ?>
+
 <div class="container-fluid ">
     <section class="row mx-0  " style="margin-bottom: 20px;">
         <div class="col"></div>
         <div class="col-10">
             <button type="button" class="btn btn-light border border-success"><a href="?act=sodophong">Tất cả (
-                    <?=100?>)
+                    <?=count_phong1('')['0']['so_phong']?>)
                 </a></button>
             <button type="button" class="btn btn-success"><a href="?act=sodophong&&trangthai=trong">Trống (
-                    <?=80?>)
+                    <?=count_phong1('trong')['0']['so_phong']?>)
                 </a></button>
             <button type="button" class="btn btn-info"><a href="?act=sodophong&&trangthai=danhan">Đã Nhận (
-                    <?=15?>)
+                    <?=count_phong1('danhan')['0']['so_phong']?>)
                 </a></button>
             <button type="button" class="btn btn-warning"><a href="?act=sodophong&&trangthai=quahan">Quá hạn (
-                    <?=3?>)
+                    <?=count_phong1('quahan')['0']['so_phong']?>)
                 </a></button>
 
             <button type="button" class="btn btn-primary"><a href="?act=sodophong&&trangthai=dadat">Đã Đặt (
-                    <?=10?>)
+                    <?=count_phong1('dadat')['0']['so_phong']?>)
                 </a></button>
             <button type="button" class="btn btn-danger"><a href="?act=sodophong&&trangthai=khongden">Không Đến (
-                    <?=1?>)
+                    <?=count_phong1('khongden')['0']['so_phong']?>)
                 </a></button>
 
             <button type="button" class="btn btn-secondary"><a href="?act=sodophong&&trangthai=ban">Bẩn (
-                    <?=1?>)
+                    <?=count_phong1('ban')['0']['so_phong']?>)
                 </a></button>
             <button type="button" class="btn btn-dark"><a href="?act=sodophong&&trangthai=dangsua">Đang Sửa (
-                    <?=2?>)
+                    <?=count_phong1('dangsua')['0']['so_phong']?>)
                 </a></button>
 
         </div>
@@ -61,10 +62,12 @@ $vietnamTime = $currentTime->format('Y-m-d H:i:s');
                     <?=$ten_khachhang?>
                 </strong> <br>
                 <strong style="color: red;">Tổng :
-                    <?=$tong_tien?> VND
+                <?= isset($tong_tien) ? $ngay_checkout < $vietnamTime ? $tong_tien + ((new DateTime($ngay_checkout))->diff(new DateTime())->format('%a')+1)*$gia  : $tong_tien : '' ?> VND
+ 
                 </strong> <br>
                 <i>
-                    <?=isset($ngay_checkout) ? (new DateTime($ngay_checkout))->diff(new DateTime())->format('%a ngày %H:%I:%S') : ''?>
+                <?= isset($ngay_checkout) ? $ngay_checkout < $vietnamTime ? (new DateTime($ngay_checkout))->diff(new DateTime())->format('Quá : %a ngày %H:%I:%S') : (new DateTime($ngay_checkout))->diff(new DateTime())->format('%a ngày %H:%I:%S') :  ''; ?>
+
                 </i>
             </div>
 
@@ -135,9 +138,9 @@ $vietnamTime = $currentTime->format('Y-m-d H:i:s');
 
                                         <td>
                                             <input type="checkbox" id="dichvu<?=$id_dichvu?>" name="dichvu[]"
-                                                value="<?=$id_dichvu?>">
+                                                value="<?=$id_dichvu?>" >
                                             <label for="dichvu<?=$id_dichvu?>">
-                                                <?=$ten_dichvu?>
+                                                <?=$ten_dichvu?> 
                                             </label><br>
                                         </td>
                                         <?php }?>
@@ -165,7 +168,8 @@ $vietnamTime = $currentTime->format('Y-m-d H:i:s');
 
 
 
-                    <?php } else {?>
+                    <?php } else if( $trang_thai == 3 || $trang_thai == 2 ){
+                    ?>
                             <p>Start:
                                 <?=$ngay_checkin?>
                             </p>
@@ -177,11 +181,16 @@ $vietnamTime = $currentTime->format('Y-m-d H:i:s');
                             </strong> <br>
                             <!-- <strong style="color: red;">Tổng : <?=$tong_tien?> VND</strong> <br> -->
                             <i>
-                                <?=isset($ngay_checkout) ? (new DateTime($ngay_checkout))->diff(new DateTime())->format('%a ngày %H:%I:%S') : ''?>
+                                <?= isset($ngay_checkout) ? $ngay_checkout < $vietnamTime ? (new DateTime($ngay_checkout))->diff(new DateTime())->format('Quá : %a ngày %H:%I:%S') : (new DateTime($ngay_checkout))->diff(new DateTime())->format('%a ngày %H:%I:%S') :  ''; ?>
                             </i>
                             <p style="font-size: 20px;" >Tổng tiền : <strong style="color: red;" id="tongtien">
-                                        <?=isset($tong_tien) ? $tong_tien : "0"?> VND
+
+                                            
+                                        <?= isset($tong_tien) ? $ngay_checkout < $vietnamTime ? $tong_tien + ((new DateTime($ngay_checkout))->diff(new DateTime())->format('%a')+1)*$gia  : $tong_tien : '' ?> VND
                                     </strong></p>
+                    <a href="?act=checkout&&iddon=<?= $id_don ?>&&idphong= <?= $id_phong ?>"><button type="submit" class="btn btn-primary" >Check Out</button></a>
+                    <?php } else {?>
+                            
                             <?php }?>
 
                     </div>
@@ -241,13 +250,19 @@ $vietnamTime = $currentTime->format('Y-m-d H:i:s');
     document.getElementById('cart_<?=$id_phong?>').setAttribute('class', 'row mx btn btn-primary');
 
 </script>
+<?php } else if ($trang_thai == 3) {?>
+<script>
+    document.getElementById('cart<?=$id_phong?>').className = 'col-3 border border-warning';
+    document.getElementById('cart_<?=$id_phong?>').setAttribute('class', 'row mx btn btn-warning');
+
+</script>
 <?php } else if ($trang_thai == 6) {?>
 <script>
     document.getElementById('cart<?=$id_phong?>').className = 'col-3 border border-secondary';
     document.getElementById('cart_<?=$id_phong?>').setAttribute('class', 'row mx btn btn-secondary');
 
 </script>
-<?php } else if ($trang_thai == 7) {?>
+<?php }else if ($trang_thai == 7) {?>
 <script>
     document.getElementById('cart<?=$id_phong?>').className = 'col-3 border border-dark';
     document.getElementById('cart_<?=$id_phong?>').setAttribute('class', 'row mx btn btn-dark');
@@ -263,7 +278,7 @@ $vietnamTime = $currentTime->format('Y-m-d H:i:s');
     var pattern = /^[a-zA-Z]*$/;
     var patternemail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     var patternNumber = /^(0|\+84)\d{9,10}$/;
-
+    
     function check() {
         var tenKH = document.getElementById('exampleInputname').value;
         var email = document.getElementById('exampleInputEmail1').value;
@@ -371,11 +386,11 @@ $vietnamTime = $currentTime->format('Y-m-d H:i:s');
             }
         }
         
-
         
 
     }
-
+    
+    
 
 
 

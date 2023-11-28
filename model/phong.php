@@ -1,6 +1,6 @@
 <?php  
 function select_Allphong(){
-    $sql = "SELECT * FROM phong AS p JOIN loai_phong AS l ON p.id_lp = l.id_loaiphong";
+    $sql = "SELECT * FROM phong AS p LEFT JOIN loai_phong AS l ON p.id_lp = l.id_loaiphong";
     return pdo_query($sql);
 }
 function select_Allphong_dango(){
@@ -32,30 +32,67 @@ function delete_phong($id){
 }
 function count_phong($trang_thai){
 
-    $sql = "SELECT * FROM phong p ";
-    $sql .= " LEFT JOIN dat_phong  dp ON  p.id_phong = dp.id_p LEFT Join loai_phong  lp ON lp.id_loaiphong = p.id_lp Where 1";
-
+    // $sql = "SELECT *  FROM phong  p ";
+    // $sql .= " LEFT JOIN dat_phong  dp ON  p.id_phong = dp.id_p LEFT Join loai_phong  lp ON lp.id_loaiphong = p.id_lp Where 1";
+    $sql = "SELECT *
+    FROM phong p
+    LEFT JOIN dat_phong dp ON p.id_phong = dp.id_p
+    LEFT JOIN loai_phong lp ON lp.id_loaiphong = p.id_lp
+    WHERE dp.id_don NOT IN (SELECT dp.id_don FROM dat_phong dp WHERE dp.trang_thai_don = 2)
+       OR dp.trang_thai_don IS NULL";
     if($trang_thai == 'trong'){
         $sql .= " AND p.trang_thai = 0";
     } else if($trang_thai == 'danhan'){
         $sql .= " AND p.trang_thai = 1";
     
-    }else if($trang_thai == 'qua'){
-        $sql .= " AND p.trang_thai = 3";
+    }else if($trang_thai == 'quahan'){
+        $sql .= " AND p.trang_thai = 2";
     
     }else if($trang_thai == 'dadat'){
+        $sql .= " AND p.trang_thai = 3";
+    
+    }else if($trang_thai == 'khongden'){
         $sql .= " AND p.trang_thai = 4";
     
     } else if($trang_thai == 'ban'){
-        $sql .= " AND p.trang_thai = 6";
+        $sql .= " AND p.trang_thai = 5";
     
     } else if($trang_thai == 'dangsua'){
-        $sql .= " AND p.trang_thai = 7";
+        $sql .= " AND p.trang_thai = 6";
     }
     
     return pdo_query($sql);
 }
-function trang_thai(){
+function count_phong1($trang_thai){
+    $sql = "SELECT *,COUNT(p.id_phong) AS so_phong FROM phong p where 1 ";
+    if($trang_thai == 'trong'){
+        $sql .= " AND p.trang_thai = 0";
+    } else if($trang_thai == 'danhan'){
+        $sql .= " AND p.trang_thai = 1";
+    
+    }else if($trang_thai == 'quahan'){
+        $sql .= " AND p.trang_thai = 2";
+    
+    }else if($trang_thai == 'dadat'){
+        $sql .= " AND p.trang_thai = 3";
+    
+    }else if($trang_thai == 'khongden'){
+        $sql .= " AND p.trang_thai = 4";
+    
+    } else if($trang_thai == 'ban'){
+        $sql .= " AND p.trang_thai = 5";
+    
+    } else if($trang_thai == 'dangsua'){
+        $sql .= " AND p.trang_thai = 6";
+    }
+    return pdo_query($sql);
+
+}
+function update_phong_trangthai($idPhong,$trangthai){
+    $sql = "UPDATE phong SET trang_thai=? WHERE id_phong =? ";
+    pdo_execute($sql,$trangthai,$idPhong);
+}
+function trangthai_auto(){
     date_default_timezone_set('Asia/Ho_Chi_Minh');
     $currentTime = new DateTime();
     $vietnamTime = $currentTime->format('Y-m-d H:i:s');
@@ -64,13 +101,16 @@ function trang_thai(){
     foreach ($listPhong as $p) {
         extract($p);
         // print_r($p);
-        if($ngay_checkin < $vietnamTime && $trang_thai == 0 && $trang_thai_don == 0){
+        if($ngay_checkin < $vietnamTime &&  $trang_thai_don == 0){
             
-            echo ("Phòng ...........".$ten_khachhang."quá hạn");
+            // echo ("Phòng ...........".$id_don.$id_phong."quá hạn nhận phòng");
+           
         } 
          if($ngay_checkout < $vietnamTime && $trang_thai == 1 && $trang_thai_don == 1){
             
-            echo ("Phòng ...........".$ten_khachhang."quá hạn check out");
+            echo ("Phòng ".$id_phong."Đơn".$id_don."quá hạn check out");
+            $sqlUpdate = "UPDATE phong SET trang_thai= 2 WHERE id_phong = $id_phong";
+            pdo_execute($sqlUpdate);
         }
     }
 }
