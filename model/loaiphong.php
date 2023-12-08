@@ -6,7 +6,7 @@ function insert_loaiphong($tenLp,$img,$gia,$moTa,$soLN,$dienTich,$idGiuong){
 }
 
 function select_Allloaiphong($keyw) {
-    $sql = "SELECT * FROM `loai_phong` p LEFT JOIN `loai_giuong` g ON p.id_lg = g.id_loaigiuong WHERE 1";
+    $sql = "SELECT * FROM `loai_phong` p LEFT JOIN `loai_giuong` g ON p.id_lg = g.id_loai_giuong WHERE 1";
     
     if ($keyw != " ") {
         $sql .= " AND ten_loai LIKE '%".$keyw ."%'";
@@ -45,6 +45,24 @@ function update_loaiphong1($id,$tenLp,$img,$gia,$moTa,$soLN,$dienTich,$idGiuong)
                 pdo_execute($sqlUpdate,$tenLp,$gia,$img,$moTa,$soLN,$dienTich,$idGiuong,$id);
 }
 
+function select_Top_4_Loai_Phong()
+{
+    $sql = "SELECT * FROM `loai_phong` LIMIT 4";
+    return pdo_query($sql);
+}
 
+function select_All_Loai_Phong()
+{
+    $sql = "SELECT * FROM `loai_phong`";
+
+    return pdo_query($sql);
+}
+
+function getLoaiPhongById($idLp)
+{
+
+    $sql = "SELECT * FROM `loai_phong` WHERE id_loaiphong = ?";
+    return pdo_query_one($sql, $idLp);
+}
 
 ?>

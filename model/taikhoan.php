@@ -1,7 +1,7 @@
 <?php
-function insert_dangky($email,$tentk,$mk){
- $sql = "INSERT INTO `taikhoan`( `email`, `tentaikhoan`, `matkhau`) VALUES ('$email','$tentk','$mk')";
- pdo_execute($sql);
+function insert_dangky($tenNV,$ngaysinh,$img,$email,$sodienthoai,$matkhau,$vaitro,$xacthuc){
+ $sql = "INSERT INTO `taikhoan`( `ho_ten`, `ngay_sinh`, `anh`, `email`, `sdt`, `mat_khau`, `vai_tro`, `xac_thuc`) VALUES (?,?,?,?,?,?,?,?)";
+ pdo_execute($sql,$tenNV,$ngaysinh,$img,$email,$sodienthoai,$matkhau,$vaitro,$xacthuc);
 }
 function update_taikhoan($id,$vaiTro){
  $sql = "UPDATE `khach_hang` SET `vai_tro`='$vaiTro' WHERE id_khachhang =? ";
@@ -9,11 +9,11 @@ function update_taikhoan($id,$vaiTro){
 }
 function select_taikhoan($email,$pass){
     
-    $sql = "SELECT * FROM `taikhoan` WHERE email = '$email' AND pass = '$pass'";
+    $sql = "SELECT * FROM taikhoan WHERE email = '$email' AND mat_khau = '$pass'";
    $tk = pdo_query_one($sql);
    if($tk){
-    $_SESSION['user'] = $email;
-    $_SESSION['idtk'] = $tk['idtk'];
+    $_SESSION['admin'] = $tk;
+    $_SESSION['id_khachhang'] = $tk['id_khachhang'];
    }
    
    else{
@@ -31,19 +31,24 @@ function select_Emailtaikhoan($email){
 
 }
 function select_alluser(){
-    $sql = "SELECT * FROM `khach_hang` ";
+    $sql = "SELECT * FROM taikhoan  ";
     return pdo_query($sql);
 }
 function select_oneuser($id){
-    $sql = "SELECT * FROM `khach_hang` WHERE id_khachhang =?";
+    $sql = "SELECT * FROM `taikhoan` WHERE id_khachhang =?";
     return pdo_query_one($sql,$id);
 }
 function delete_user($idtk){
-    $sql = "DELETE FROM `nguoidung` WHERE id_u =$idtk";
+    $sql = "DELETE FROM `taikhoan` WHERE id_khachhang =$idtk";
     return pdo_execute($sql);
 }
 
 function update_pass($idtk,$passnew){
-    $sql = "UPDATE `taikhoan` SET `matkhau`='$passnew' WHERE idtk=$idtk";
+    $sql = "UPDATE `taikhoan` SET `mat_khau`='$passnew', `xac_thuc`= 1 WHERE id_khachhang=$idtk";
+     pdo_execute($sql);
+}
+
+function update_taikhoan1($ho_ten,$ngay_sinh,$img,$email,$sdt,$id){
+    $sql = "UPDATE `taikhoan` SET `ho_ten`='$ho_ten',`ngay_sinh`='$ngay_sinh',`anh`='$img',`email`='$email',`sdt`='$sdt' WHERE `id_khachhang`=$id";
      pdo_execute($sql);
 }

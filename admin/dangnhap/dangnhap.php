@@ -1,5 +1,34 @@
+<?php
+session_start();
+include_once "../../model/pdo.php";
+include_once "../../global.php";
+include_once "../../model/taikhoan.php";
 
 
+?>
+<?php 
+$error = [];
+if(isset($_POST['submit']) && $_POST['submit']){
+    $email = $_POST['email'];
+    if($email==''){
+        $error['email'] = 'Không được bỏ trống !';
+    }
+    if($_POST['password']==''){
+        $error['password'] = 'Không được bỏ trống !';
+    }
+    if(empty($error)){
+        $admin =  select_taikhoan($_POST['email'],$_POST['password']);
+        if(is_array($admin)){
+            header("Location: http://localhost/A/DU_AN_1_NHOM_4/admin/index.php");
+
+        } else {
+            $error['password'] = "Sai tài khoản hoặc mật khẩu !";
+        }
+    }
+ }
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -64,15 +93,20 @@
 
             <div class="form-group">
                 <label for="email">Email</label>
-                <input type="text" id="email" name="email" placeholder="Nhập email đăng nhập" required>
+                <input type="text" id="email" name="email" placeholder="<?php echo isset($error['email']) ? $error['email'] : 'Nhập email đăng nhập' ?>" require onchange="check_email()">
+                <span id="emailerror" style="color: red;"><?php echo isset($error['email']) ? $error['email'] : '' ?> </span>
+
             </div>
 
             <div class="form-group">
                 <label for="password">Mật khẩu</label>
-                <input type="password" id="password" name="password" placeholder="Nhập mật khẩu" required>
+                <input type="password" id="password" name="password" placeholder="Nhập mật khẩu"   onchange="check_password()">
+                <span id="emailerror" style="color: red;"><?php echo isset($error['password']) ? $error['password'] : '' ?> </span>
+
             </div>
 
-            <input type="submit">
+            <!-- <input type="submit" > -->
+            <input type="submit" class="btn btn-primary" value="Đăng Nhập" name="submit">
 
         </form>
 
@@ -81,3 +115,36 @@
 
 </body>
 </html>
+
+
+
+<!-- <script>
+    console.log('hihi1');
+
+    function check_password(){
+    console.log('hihi2');
+
+        var pass = document.getElementById('password').value;
+        if( pass == ' '){
+            // $('#passerror').html("Bạn chưa nhập mật khẩu");
+            document.getElementById('passerror').innerHTML = 'Bạn chưa nhập mật khẩu';
+
+        } else if(pass.length < 8) {
+            document.getElementById('passerror').innerHTML = 'Mật khẩu ít nhất 8 ký tự';
+
+        }
+    }
+    function check_email(){
+    console.log('hihi2');
+
+        var email = document.getElementById('email').value;
+        if( email == ' '){
+            // $('#emailerror').html("Bạn chưa nhập mật khẩu");
+            document.getElementById('emailerror').innerHTML = 'Bạn chưa nhập mật khẩu';
+
+        } else if(email.length < 8) {
+            document.getElementById('emailerror').innerHTML = 'Mật khẩu ít nhất 8 ký tự';
+
+        }
+    }
+</script> -->

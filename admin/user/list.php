@@ -3,7 +3,7 @@
 <section class="row mx-0  ">
             <div class="col"></div>
 
-            <button type="button" class="btn btn-secondary col-10" data-container="body" data-toggle="popover" data-placement="top" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
+            <button type="button" class="btn btn-secondary col-10" data-container="body" data-toggle="popover" data-placement="top" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus." style="margin-bottom: 30px;">
                 Danh Sách Người Dùng
                 </button>
             <div class="col"></div>                        
@@ -11,7 +11,7 @@
         <section class="row mx-0  ">
             <!-- <div class="col"></div> -->
 
-            <span style="color: greenyellow;"><?php  echo isset($thongbao)? $thongbao : "";?></span>
+            <span style="color: green;text-align: center;  width: 100%; "><?php  echo isset($thongbao)? $thongbao : "";?></span>
 
             <!-- <div class="col-0.5"></div>                         -->
         </section>
@@ -52,8 +52,11 @@
                         <td><?php echo $vai_tro == 0 ? 'Administrator':( $vai_tro == 1 ? 'Nhân Viên' : '')  ?></td>
 
                         <td>
-                            <button type="submit" class="btn btn-danger" > <a href="?act=deleteu&id=<?= $id_khachhang?>" onclick="return confirm('Bạn muốn xóa ?' )">Xóa</a></button>
-                            <button type="submit" class="btn btn-warning"><a href="?act=editu&id=<?= $id_khachhang?>">Sửa Vai Trò</a></button>
+                            <?php if($_SESSION['admin']['id_khachhang'] != $id_khachhang){ ?>
+                                <button type="submit" class="btn btn-danger" > <a href="?act=deleteu&id=<?= $id_khachhang?>" onclick="return confirm('Bạn muốn xóa ?' )">Xóa</a></button>
+                                <button type="submit" class="btn btn-warning"><a href="?act=editu&id=<?= $id_khachhang?>">Sửa Vai Trò</a></button>
+                            <?php } ?>
+                            
                         </td>
                         
                         </tr> 

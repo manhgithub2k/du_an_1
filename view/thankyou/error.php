@@ -1,0 +1,1 @@
+<p class="text text-danger fs-4 fw-bold">Ban chua thuc hien thanh toan</p>

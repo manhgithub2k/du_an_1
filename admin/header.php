@@ -52,6 +52,31 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
+                <a class="nav-link" href="index.php?act=quanlyloaiphong">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Đặt Phòng </span></a>
+            </li>
+           
+                    <!-- Nav Item - Đặt Phòng Menu -->
+                    <li class="nav-item">
+
+                    <a class="nav-link collapsed " href="" data-toggle="collapse" data-target="#donhang"
+                        aria-expanded="true" aria-controls="donhang">
+                        <i class="fa fa-cart-plus" aria-hidden="true"></i>
+                        <span>Quản Lý Đặt Phòng </span>
+                    </a>
+                    <div id="donhang" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                        <div class="bg-white py-2 collapse-inner rounded">
+                            <h6 class="collapse-header">Custom Components:</h6>
+                            <a class="collapse-item" href="?act=listdatphong">Quản Lý Đặt Phòng</a>
+                            <a class="collapse-item" href="?act=adddichvudatphong&&a=adddichvudatphong">Thêm Dịch Vụ Phòng</a>
+                            <a class="collapse-item" href="#">Thống Kê</a>
+                        </div>
+                    </div>
+                    </li>
+
+            
+            <li class="nav-item active">
                 <a class="nav-link" href="index.php?act=sodophong">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Sơ Đồ Phòng </span></a>
@@ -79,7 +104,6 @@
                         <a class="collapse-item" href="?act=addlp&a=listlp">Thêm Loại Phòng</a>
                         <a class="collapse-item" href="?act=listlp&a=listlp">Danh Sách</a>
                         <a class="collapse-item" href="?act=addtienichloaiphong">Thêm Tiện Ích Loại Phòng</a>
-                        <a class="collapse-item" href="?act=editlp&a=listlp">Thống Kê</a>
                     </div>
                 </div>
             </li>
@@ -94,15 +118,70 @@
                 <div id="collapseTwo1" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Custom Components:</h6>
-                        <a class="collapse-item" href="?act=addp">Thêm Phòng</a>                       
-                        <a class="collapse-item" href="?act=listp">Danh Sách</a>
-                        <a class="collapse-item" href="?act=editp">Thống Kê</a>
+                        <a class="collapse-item" href="?act=addp&a=listp">Thêm Phòng</a>                       
+                        <a class="collapse-item" href="?act=listp&a=listp">Danh Sách</a>
+                    </div>
+                </div>
+            </li>
+            <!-- Nav Item - Tiện Ích Menu -->
+            <li class="nav-item">
+
+                <a class="nav-link collapsed collapsed2" href="#" data-toggle="collapse" data-target="#tienich"
+                    aria-expanded="true" aria-controls="tienich">
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <span>Tiện ích</span>
+                </a>
+                <div id="tienich" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Custom Components:</h6>
+                        <a class="collapse-item" href="?act=addti">Thêm Tiện Ích</a>
+                        <a class="collapse-item" href="?act=listti">Danh Sách</a>
+                        <a class="collapse-item" href="?act=editti">Thống Kê</a>
+                    </div>
+                </div>
+            </li>
+
+            <!-- Nav Item - Dịch Vụ Menu -->
+            <li class="nav-item">
+
+                <a class="nav-link collapsed collapsed2" href="#" data-toggle="collapse" data-target="#dichvu"
+                    aria-expanded="true" aria-controls="dichvu">
+                    <i class="fa fa-bell" aria-hidden="true"></i>
+                    <span>Dịch Vụ</span>
+                </a>
+                <div id="dichvu" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Custom Components:</h6>
+                        <a class="collapse-item" href="?act=adddv">Thêm Dịch Vụ</a>
+                        <a class="collapse-item" href="?act=listdv">Danh Sách</a>
+                        <a class="collapse-item" href="?act=editdv">Thống Kê</a>
+                    </div>
+                </div>
+            </li>
+
+            <!-- Nav Item - Vouchers Menu -->
+            <li class="nav-item">
+
+                <a class="nav-link collapsed collapsed2" href="#" data-toggle="collapse" data-target="#vouchers"
+                    aria-expanded="true" aria-controls="vouchers">
+                    <i class="fa fa-tags" aria-hidden="true"></i>
+                    <span>Vouchers</span>
+                </a>
+                <div id="vouchers" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Custom Components:</h6>
+                        <a class="collapse-item" href="?act=addvoucher">Thêm Voucher</a>
+                        <a class="collapse-item" href="?act=listvoucher">Danh Sách</a>
+                        <a class="collapse-item" href="?act=editvoucher">Thống Kê</a>
                     </div>
                 </div>
             </li>
             
             <!-- Nav Item - User Menu -->
-            <li class="nav-item">
+            <?php if(isset($_SESSION['admin'])  && $_SESSION['admin']['vai_tro'] == 0){
+                // echo "haha";
+                ?>
+                <li class="nav-item">
 
                 <a class="nav-link collapsed " href="" data-toggle="collapse" data-target="#user" aria-expanded="true"
                     aria-controls="user">
@@ -112,45 +191,15 @@
                 <div id="user" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Custom Components:</h6>
+                        <a class="collapse-item" href="?act=addu">Thêm Nhân Viên</a>
                         <a class="collapse-item" href="?act=listu">Danh Sách</a>
-                        <a class="collapse-item" href="#">Thống Kê</a>
                     </div>
                 </div>
             </li>
+            <?php }?>
+            
 
-            <!-- Nav Item - Đặt Phòng Menu -->
-            <li class="nav-item">
-
-                <a class="nav-link collapsed " href="" data-toggle="collapse" data-target="#donhang"
-                    aria-expanded="true" aria-controls="donhang">
-                    <i class="fa fa-cart-plus" aria-hidden="true"></i>
-                    <span>Đặt Phòng</span>
-                </a>
-                <div id="donhang" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Custom Components:</h6>
-                        <a class="collapse-item" href="?act=listdatphong">Quản Lý Đặt Phòng</a>
-                        <a class="collapse-item" href="?act=adddichvudatphong&&a=adddichvudatphong">Thêm Dịch Vụ Phòng</a>
-                        <a class="collapse-item" href="#">Thống Kê</a>
-                    </div>
-                </div>
-            </li>
-            <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item">
-
-                <a class="nav-link collapsed " href="#" data-toggle="collapse" data-target="#thongke"
-                    aria-expanded="true" aria-controls="thongke">
-                    <i class="fa fa-industry" aria-hidden="true"></i>
-                    <span>Thống Kê</span>
-                </a>
-                <div id="thongke" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Custom Components:</h6>
-                        <a class="collapse-item" href="#">Thêm sách</a>
-                        <a class="collapse-item" href="#">Thống Kê</a>
-                    </div>
-                </div>
-            </li>
+            
 
             
 
@@ -354,8 +403,8 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
-                                <img class="img-profile rounded-circle" src="../img/undraw_profile.svg">
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php echo 'Hello,'.$_SESSION['admin']['ho_ten'] ?></span>
+                                <img class="img-profile rounded-circle" src="<?= $_SESSION['admin']['anh'] ?>">
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -373,7 +422,7 @@
                                     Activity Log
                                 </a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                                <a class="dropdown-item" href="?act=logout" >
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Logout
                                 </a>

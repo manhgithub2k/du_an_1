@@ -1,0 +1,1 @@
+<p class="text text-success fs-3 fw-bold my-5 mx-5 text-thank">Da gui hoa don qua email. vui long kiem tra</p>

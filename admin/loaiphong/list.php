@@ -4,7 +4,7 @@
                         <div class="col"></div>
 
                         <button type="button" class="btn btn-secondary col-10" data-container="body" data-toggle="popover" data-placement="top" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
-                            Danh Sách Danh Mục
+                            Danh Sách Loại Phòng
                           </button>
                         <div class="col"></div>                        
                     </section>

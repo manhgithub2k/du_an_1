@@ -1,0 +1,607 @@
+*{
+    padding: 0;  /* không có cái này khi dùng ul>li>a nó sẽ cách lề */
+    
+    box-sizing: border-box;
+    /* không bị sợ pading vượt ra ngoài */
+    font-size: 0.8vw;
+}
+
+a{
+    text-decoration: none;
+}
+li{
+    list-style:none ;
+}
+.container{
+    width: 70%;
+    margin: 0 auto;
+}
+.row{
+    border-radius: 9px;
+    width: 100%;
+    margin-bottom: 30px;
+}
+header{
+    border-radius: 10px;
+    background-color: antiquewhite;
+    width: 100%;
+    height: 100px;
+    text-align: center;
+    line-height: 100px;
+    margin-bottom: 30px;
+}
+header>h1{
+    font-family: 'Times New Roman', Times, serif;
+    color: seagreen;
+    font-size: 2vw;
+}
+
+nav{
+    border-radius: 10px;
+    background-color: black;
+    width: 100%;
+    height: 80px;
+    text-align: center;
+    margin-bottom: 30px;
+
+}
+nav>ul{
+    height: 80px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+nav>ul>li>a{
+    font-size: 1.4vw;
+    color: azure;
+}
+nav>ul>li>a:hover{
+    
+    color: red;
+}
+nav>ul>li>a:active{
+    color: blue;
+}
+
+main{
+    
+    display: flex;
+    margin-bottom: 30px;
+    font-size: 1vw;
+
+}
+main>.box_left{
+    width: 74%;
+    
+    margin-right: 2%;
+
+}
+main>.box_right{
+
+    width: 24%;
+
+}
+.box_right button{
+    border: 1px solid rgba(128, 128, 128, 0.493);
+    padding: 5px 13px;
+    
+
+}
+.boxfooter input{
+    padding-left: 10px;
+    width: 13vw;
+    height: 2vw;
+}
+main .boxbanner>.slideshow-containe>.mySlides>img{
+    text-align: center;
+    width: 100%;
+    height: 100%;
+
+}
+main .boxbanner>.slideshow-containe>.mySlides{
+    background-color: aqua;
+    width: 100%;
+    height: 100%;
+
+}
+* {box-sizing:border-box}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+
+/* Hide the images by default */
+.mySlides {
+  display: none;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* Caption text */
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+/* END CSS SLIDE SHOW */
+
+.box_right_1,.box_right_2,.box_right_3{
+    line-height: 34px;
+    border: 1px solid rgba(128, 128, 128, 0.493);
+}
+.box_right_1 h3{
+    background-color: rgba(128, 128, 128, 0.301);
+}
+main .box_right_1 input{
+    padding-left: 7px;
+    width: 97%;
+    height: 2.3vw;
+    border-radius: 5px;
+    border: 0.4px solid green;
+}
+
+main .box_right_1 input[type="checkbox"]{
+    border: 1px solid rgba(128, 128, 128, 0.493);
+width: 1vw;
+padding: 5px;
+}
+
+
+
+main .boxtitel{
+    background-color:rgba(128, 128, 128, 0.2) ;
+    text-align: center;
+    font-size: 0.89vw;
+}
+.boxcontent{
+    padding: 10px;
+    min-height: 100px;
+}
+.box_right_2 .boxcontent2 ul li {
+    background-color:white;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.726);
+    text-align: center;
+}
+.box_right_2 .boxcontent2 ul li a {
+    font-size: 1vw;
+    color: black;
+}
+.box_right_2 .boxcontent2 ul li:hover {
+    background-color: rgba(128, 128, 128, 0.571);
+    border-bottom: 1px solid rgba(128, 128, 128, 0.605);
+}
+
+.box_right_3 .boxcontent  img{
+    width: 30px;
+    border-radius: 50%;
+}
+.box_right_3 .boxcontent article {
+    background-color: rgba(255, 192, 203, 0.543);
+    height: 150px;
+    display: flex;
+    justify-content: start;
+    margin-bottom: 3px;
+    
+    height: 30px;
+}
+.box_right_3 .boxcontent article:hover img{
+    transform: scale(1.2);
+}
+.box_right_3 .boxcontent article a{
+    margin-left: 10px;
+}
+.boxfooter{
+    padding: 10px;
+    min-height: 40px;
+    background-color:rgba(128, 128, 128, 0.2) ;
+    text-align: center;
+}
+
+.box_left>section>.boxsp{
+    line-height: 10px;
+    padding: 10px;
+    margin-right: 23px;
+    float: left;
+    text-align: center;
+ width: 30%;
+ min-height: 360px;
+ max-height: 40px;
+ border: 1px solid green;
+ border-radius: 10px;
+margin-bottom: 27px;
+}
+.box_left>section>.boxsp:hover{
+    box-shadow: 1px 1px 1px 13px rgba(191, 248, 187, 0.196);
+    transform: scale(1.02);
+    transition: ease-in-out 0.5s;
+}
+.box_left section .boxsp p{
+    font-weight: bold;
+    font-size: 1.4vw;
+}
+section>.boxsp img{
+    height: 230px;
+    /* background-color: blue; */
+    width: 100%;
+    border-radius: 10px 10px 0 0;
+}
+
+input[name="addcart"]{
+    display: none;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+}
+.boxsp:hover input[name="addcart"]{
+    margin-left: 37px;
+    margin-top: 10px;
+    display: block;
+    background-color: red;
+}
+
+footer{
+    margin-top: 50px;
+    border-radius: 10px;
+    background-color: bisque;
+    width: 100%;
+    height: 80px;
+    text-align: center;
+    line-height: 80px;
+    font-size: 10px;
+
+}
+
+
+/* CSS CHO PHẦN CHI TIẾT SẢN PHẨM  */
+
+.box_left_ctsp{
+    width: 74%;
+    margin-right: 2%;
+
+    border-radius: 10px;
+
+}
+.box_left_ctsp_titel h2{
+    font-size: 1vw;
+    padding: 8px 0px 8px 20px;
+    width: 100%;
+    color: red;
+    /* background-color: rgba(128, 128, 128, 0.263); */
+}
+.box_left_ctsp_titel img{
+    border-radius: 10px;
+    
+    width: 100%;
+}
+.box_left_ctsp_binhluan{
+    margin-top: 20px;
+    width: 100% ;
+    min-height: 100px;
+    border: 1px solid rgb(183, 195, 10);
+
+    border-radius: 10px;
+
+}
+.box_left_ctsp_binhluan h4{
+    padding:  10px 0 0 20px;
+    
+}
+.box_left_ctsp_binhluan td{
+    padding:  0 10px 10px 20px ;
+    
+}
+.box_left_ctsp_senbinhluan{
+    width:100%;   
+    
+}
+.box_left_ctsp_senbinhluan form{
+    width:100%;   
+    min-height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.box_left_ctsp_senbinhluan input{
+    border: 1px solid rgb(183, 195, 10);
+    width:30%;    
+    min-height: 30px;
+    border-radius: 3px;
+    margin-right: 10px;
+}
+.box_left_ctsp_senbinhluan button{
+    border: 1px solid rgb(183, 195, 10);
+    width:10%;    
+    min-height: 30px;
+    border-radius: 3px;
+    margin-right: 10px;
+}
+.box_left_ctsp_splq{
+    width:100%;   
+    min-height: 100px;
+    border: 1px solid rgb(183, 195, 10);
+
+}
+.box_left_ctsp_splq_titel h4{
+    padding: 10px 0;
+    background-color: rgba(128, 128, 128, 0.4);
+}
+.box_left_ctsp_splq_list li{
+    margin-left: 20px;
+    padding: 0 0 10px 20px;
+    list-style: decimal;
+    
+}
+.box_left_ctsp_splq_list a{
+    
+    
+}
+/* CSS CHO PHẦN SẢN PHẨM CÙNG LOẠI */
+.box_left>.titel_h2{
+    
+    width: 100%;
+    padding: 5px 0 5px 20px;
+    background-color: #717171;
+
+}
+
+ /* CSS CHO PHẦN ĐĂNG KÝ */
+ .box_left_login{
+    border: 1px solid rgb(183, 195, 10);
+    min-height: 300px;
+    padding: 0 200px ;
+
+ }
+ .box_left_login h3{
+    padding: 10px 0 10px 20px;
+    background-color: rgba(128, 128, 128, 0.4);
+ }
+ .box_left_login label{
+    font-size: 1vw;
+ }
+ .box_left_login input{
+    margin-bottom: 10px;
+    width:25vw;
+    height: 2vw;
+    border-radius: 6px;
+    border: 1px solid rgb(183, 195, 10);
+ }
+ .box_left_login button{
+    width:7vw;
+    height: 2vw;
+    border: 1px solid rgb(183, 195, 10);
+ }
+
+
+  /* CSS PHẦN QUÊN MẬT KHẨU */
+
+  /* CSS PHẦN GIỞ HÀNG */
+  .box_left_cart{
+    border-radius: 5px ;
+    width: 100%;
+    background-color: #ffffff;
+    border: 0.3px solid #0ea700;
+
+  }
+  .giohang_main{
+    padding: 20px;
+  }
+  .giohang_main th,.giohang_main td{
+    border: 0.3px solid #0ea700;
+    padding: 20px;
+  }
+  .giohang_main td{
+    height: 40px;
+    
+  }
+  .giohang_titel{
+    width: 100%;
+    padding: 5px 0 5px 20px;
+    background-color:#949494;
+  }
+  .giohang_main button{
+    margin-top: 20px;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: rgb(255, 0, 0);
+  }
+  .giohang_main button:hover{
+    background-color: rgb(0, 146, 5);
+    border: 0.3px solid #0ea700;
+  }
+  .giohang_main a{
+    color: white;
+  }
+
+  .box_left_cart_top , .box_left_cart_mid{
+    padding: 10px 10px;
+    border-radius: 5px ;
+    width: 100%;
+    background-color: #ffffff;
+    border: 0.3px solid #0ea700;
+    margin-bottom: 20px;
+
+  }
+  .box_left_cart_top td{
+    border: none;
+    text-align: left;
+
+  }
+  .box_left_cart_top input{
+    border: 0.3px solid #0ea700;
+    width: 150%;
+    height: 1.6vw;
+
+  }
+  /* CSS PHẦN ADMIN */
+
+  .admin_header{
+    
+    border-radius: 10px;
+    /* background-color: rgb(226, 254, 184); */
+    background-color: rgb(254, 184, 184);
+    width: 100%;
+    height: 100px;
+    text-align: center;
+    line-height: 100px;
+    margin-bottom: 30px;
+    
+}
+.admin_header h2{
+    font-size: 2vw;
+    color: rgb(27, 118, 0);
+}
+.add_loai{
+    line-height: 50px;
+}
+.add_loai label{
+    
+    font-size: 1.2vw;
+}
+.add_loai form input{
+   padding-left: 20px;
+    width: 100%;
+    height: 2vw;
+    border-radius: 3px;
+    border: 0.5px solid goldenrod;
+}
+.add_loai form button{
+    margin-right: 10px;
+    margin-top: 14px;
+    width: 10%;
+    height: 2vw;
+    border-radius: 3px;
+    border: 0.5px solid goldenrod;
+    background-color: green;
+    color: white;
+}
+.add_loai form button a{
+    color: white;
+}
+
+
+ /* CSS PHẦN ADMIN : DANH SÁCH LOẠI */
+ .list_loai {
+    
+ }
+ .list_loai table {
+    width: 100%;
+    border-collapse: collapse;
+ }
+ 
+ .list_loai th {
+    background-color: rgba(255, 217, 0, 0.596);
+ }
+ 
+ .list_loai th,td {
+   
+    width: 20vw;
+    /* border: 1px solid black ; */
+    padding: 10px;
+    text-align:center;
+    font-size: 1vw;
+ }
+ .list_loai button {
+    padding: 8px 15px ;
+    background-color: rgba(103, 130, 154, 0);
+    border: 1px solid rgb(183, 195, 10);
+    border-radius: 3px;
+ }
+
+/* CSS PHẦN ADMIN */
+.add_loai input[type="submit"]{
+    background-color: blue;
+    font-size: 1.2vw;
+    color: white;
+}
+.add_loai input[type="submit"]:hover{
+    background-color: rgb(15, 176, 0);
+    
+}
+ /* CSS CHO PHẦN ADMIN SẢN PHẨM  */
+ select[name="iddm"]{
+    padding: 10px 50px;
+    border: 1px solid rgb(183, 195, 10);
+ }
+ input[type="file"]{
+    padding: 5px 0;
+ }
+ textarea[name="motasp"]{
+    border: 1px solid rgb(183, 195, 10);
+ }
+ input[name="tim"]{
+    padding: 5px 18px;
+    border: 1px solid rgb(183, 195, 10);
+ }
+ 
